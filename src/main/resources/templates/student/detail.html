@@ -1,0 +1,12 @@
+<div th:replace="partial/header"></div>
+<div class="notification is-primary mt-5" th:if="${message != null}">
+    <p th:text="${message}"></p>
+</div>
+<section class="section" th:if="${student != null}">
+        <h1 class="title">Student Detail</h1>
+        <h2 class="subtitle" th:text="${'#' + student.id} ?: ''"></h2>
+        <h2 class="subtitle" th:text="${student.lastName}"></h2>
+        <h2 class="subtitle" th:text="${student.firstName}"></h2>
+        <h2 class="subtitle" th:text="${student.email}"></h2>
+</section>
+<div th:replace="partial/footer"></div>

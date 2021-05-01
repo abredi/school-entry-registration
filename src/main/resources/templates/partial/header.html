@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <title>MIU Student</title>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="../static/img/favicon.png" th:href="@{/img/favicon.png}">
+    <link rel="stylesheet" type="text/css" media="all"
+          href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
+    <link rel="stylesheet" type="text/css" media="all" href="../../css/style.css" th:href="@{/css/style.css}"/>
+
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+<nav class="navbar is-black" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item has-background-black" href="/">
+            <img src="../../img/favicon.png" th:src="@{/img/favicon.png}" class="max-w-3 w-3 max-h-3"
+                 alt="MIU Registration">
+        </a>
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+    <div class="navbar-menu">
+        <div class="navbar-start mx-5 px-5">
+            <a class="navbar-item" href="/">
+                Home
+            </a>
+            <a class="navbar-item" href="/student">
+                Student
+            </a>
+            <a class="navbar-item" href="/student/add">
+                Add Student
+            </a>
+            <a class="navbar-item" href="/entry">
+                Entry
+            </a>
+            <a class="navbar-item" href="/entry/add">
+                Add Entry
+            </a>
+            <a class="navbar-item" href="/block">
+                Block
+            </a>
+            <a class="navbar-item" href="/block/add">
+                Add Block
+            </a>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+

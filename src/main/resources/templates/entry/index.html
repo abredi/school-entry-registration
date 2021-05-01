@@ -1,0 +1,43 @@
+<div th:replace="partial/header"></div>
+<section class="hero is-info">
+    <div class="hero-body">
+        <p class="title">
+            Reziz
+        </p>
+        <p class="subtitle">
+            Made with 💜
+        </p>
+    </div>
+</section>
+<section class="section">
+    <div class="container">
+        <h1 class="title">
+            Maharishi International University
+        </h1>
+        <p class="subtitle">
+            <strong>Entry</strong> registration system.
+        </p>
+    </div>
+    <div class="table-container">
+        <table class="table">
+            <tr>
+                <th title="#">#</th>
+                <th>Entry Name</th>
+                <th>FPP</th>
+                <th>MPP</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+            </tr>
+            <tr th:each="entry : ${entryList}">
+                <td th:text="${entry.id}">1</td>
+                <td><a th:href="@{'/entry/' + ${entry.id}}" th:text="${entry.entryName}">Entry Name ...</a></td>
+                <td th:text="${entry.fPPNum}">FPP Num ...</td>
+                <td th:text="${entry.mPPNum}">MPP Num ...</td>
+                <td th:text="${entry.startDate}">Start Date ...</td>
+                <td th:text="${entry.endDate}">End Date ...</td>
+            </tr>
+        </table>
+    </div>
+</section>
+
+<div th:replace="partial/footer"></div>

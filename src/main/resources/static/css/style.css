@@ -1,0 +1,12 @@
+.max-h-3 {
+    height: 3rem;
+    max-height: 3rem !important;
+}
+
+.max-w-4 {
+    max-width: 4rem;
+}
+
+.w-4 {
+    width: 4rem;
+}

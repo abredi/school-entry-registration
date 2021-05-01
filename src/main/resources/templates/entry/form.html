@@ -1,0 +1,105 @@
+<div th:replace="partial/header"></div>
+<section class="p-5 is-flex is-justify-content-center">
+    <section class="hero is-info is-half p-6">
+        <div class="hero-head">
+            <div class="">
+                <p class="title">
+                    Entry Registration Form
+                </p>
+                <p class="subtitle">
+                    Maharishi International University
+                </p>
+            </div>
+        </div>
+        <div class="hero-body">
+            <form class="box" th:action="@{/entry/add}" th:object="${entry}" method="post">
+
+                <div class="field">
+                    <label class="label">Entry Name</label>
+                    <div class="control has-icons-left has-icons-right">
+                        <input class="input is-info" placeholder="Enter Entry Name" th:field="*{entryName}"
+                               th:errorclass="'is-danger'">
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-user"></i>
+                        </span>
+                        <span class="icon is-small is-right">
+                            <i class="fas fa-check"></i>
+                        </span>
+                    </div>
+                    <p th:if="${#fields.hasErrors('entryName')}" th:errors="*{entryName}" th:errorclass="'help is-danger'">Error</p>
+                </div>
+
+                <div class="field">
+                    <label class="label">FPP Num</label>
+                    <div class="control has-icons-left has-icons-right">
+                        <input class="input is-info" placeholder="Enter FPP Num" th:field="*{fPPNum}"
+                               th:errorclass="'is-danger'">
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-user"></i>
+                        </span>
+                        <span class="icon is-small is-right">
+                            <i class="fas fa-check"></i>
+                        </span>
+                    </div>
+                    <p th:if="${#fields.hasErrors('fPPNum')}" th:errors="*{fPPNum}" th:errorclass="'help is-danger'">Error</p>
+                </div>
+
+                <div class="field">
+                    <label class="label">Entry MPP Num</label>
+                    <div class="control has-icons-left has-icons-right">
+                        <input class="input is-info" placeholder="Enter MPP Num" th:field="*{mPPNum}"
+                               th:errorclass="'is-danger'">
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-user"></i>
+                        </span>
+                        <span class="icon is-small is-right">
+                            <i class="fas fa-check"></i>
+                        </span>
+                    </div>
+                    <p th:if="${#fields.hasErrors('mPPNum')}" th:errors="*{mPPNum}" th:errorclass="'help is-danger'">Error</p>
+                </div>
+
+                <div class="field">
+                    <label class="label">Entry Start Date</label>
+                    <div class="control has-icons-left has-icons-right">
+                        <input class="input is-info" placeholder="Enter Start Date" th:field="*{startDate}"
+                               th:errorclass="'is-danger'">
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-user"></i>
+                        </span>
+                        <span class="icon is-small is-right">
+                            <i class="fas fa-check"></i>
+                        </span>
+                    </div>
+                    <p th:if="${#fields.hasErrors('startDate')}" th:errors="*{startDate}" th:errorclass="'help is-danger'">Error</p>
+                </div>
+
+                <div class="field">
+                    <label class="label">Entry End Date</label>
+                    <div class="control has-icons-left has-icons-right">
+                        <input class="input is-info" placeholder="Enter End Date" th:field="*{endDate}"
+                               th:errorclass="'is-danger'">
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-user"></i>
+                        </span>
+                        <span class="icon is-small is-right">
+                            <i class="fas fa-check"></i>
+                        </span>
+                    </div>
+                    <p th:if="${#fields.hasErrors('endDate')}" th:errors="*{endDate}" th:errorclass="'help is-danger'">Error</p>
+                </div>
+
+                <div class="field is-grouped">
+                    <div class="control">
+                        <button type="submit" class="button is-info">Submit</button>
+                    </div>
+                    <div class="control">
+                        <button class="button is-info is-light">Cancel</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+</section>
+<div th:replace="partial/footer"></div>
+

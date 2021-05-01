@@ -1,0 +1,14 @@
+<div th:replace="partial/header"></div>
+<div class="notification is-primary mt-5" th:if="${message != null}">
+    <p th:text="${message}"></p>
+</div>
+<section class="section" th:if="${block != null}">
+        <h1 class="title">Entry Detail</h1>
+        <h2 class="subtitle" th:text="${'#' + block.id} ?: ''"></h2>
+        <h2 class="subtitle" th:text="${block.blockName}"></h2>
+        <h2 class="subtitle" th:text="${block.getFPPNum()}"></h2>
+        <h2 class="subtitle" th:text="${block.mPPNum}"></h2>
+        <h2 class="subtitle" th:text="${block.startDate}"></h2>
+        <h2 class="subtitle" th:text="${block.endDate}"></h2>
+</section>
+<div th:replace="partial/footer"></div>
