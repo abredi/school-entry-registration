@@ -1,0 +1,14 @@
+<div th:replace="partial/header"></div>
+<div class="notification is-info mt-5" th:if="${message != null}">
+    <p th:text="${message}"></p>
+</div>
+<section class="section" th:if="${course != null}">
+    <h1 class="title">Course Detail</h1>
+    <h2 class="subtitle" th:text="${'#' + course.id} ?: ''"></h2>
+    <h2 class="subtitle" th:text="${course.name}"></h2>
+    <h2 class="subtitle" th:text="${course.maximumSeat}"></h2>
+    <h2 class="subtitle">
+        <span th:each="c : ${course.prerequisite}" th:value="${c.id}" th:text="${c.name + ' '}"></span>
+    </h2>
+</section>
+<div th:replace="partial/footer"></div>

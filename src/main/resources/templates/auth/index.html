@@ -15,7 +15,7 @@
             Maharishi International University
         </h1>
         <p class="subtitle">
-            <strong>Entry</strong> registration system.
+            Registered <strong> Accounts</strong>
         </p>
     </div>
     <div class="container mt-3">
@@ -24,19 +24,17 @@
                 <table class="table is-fullwidth  is-striped is-hoverable">
                     <tr>
                         <th title="#">#</th>
-                        <th>Block Name</th>
-                        <th>FPP</th>
-                        <th>MPP</th>
-                        <th>Start Date</th>
-                        <th>End Date</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>UserName</th>
+                        <th>Roles</th>
                     </tr>
-                    <tr th:each="block : ${blockList}">
-                        <td><a th:href="@{'/block/' + ${block.id}}" th:text="${block.id}">Block Id ...</a></td>
-                        <td><a href="#" th:text="${block.blockName}">Block Name ...</a></td>
-                        <td th:text="${block.fPPNum}">FPP Num ...</td>
-                        <td th:text="${block.mPPNum}">MPP Num ...</td>
-                        <td th:text="${block.startDate}">Start Date ...</td>
-                        <td th:text="${block.endDate}">End Date ...</td>
+                    <tr th:each="acc : ${accounts}">
+                        <td><a th:href="@{'/account/' + ${acc.id}}" th:text="${acc.id}">Account Id ...</a></td>
+                        <td><a th:href="@{'/account/' + ${acc.id}}" th:text="${acc.firstName}">First Name ...</a></td>
+                        <td th:text="${acc.lastName}">Last Name ...</td>
+                        <td th:text="${acc.username}">Username ...</td>
+                        <td th:text="${acc.roles}">Roles ...</td>
                     </tr>
                 </table>
             </div>

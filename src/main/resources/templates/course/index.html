@@ -15,7 +15,7 @@
             Maharishi International University
         </h1>
         <p class="subtitle">
-            <strong>Entry</strong> registration system.
+            <strong>Course</strong> registration system.
         </p>
     </div>
     <div class="container mt-3">
@@ -24,19 +24,20 @@
                 <table class="table is-fullwidth  is-striped is-hoverable">
             <tr>
                 <th title="#">#</th>
-                <th>Entry Name</th>
-                <th>FPP</th>
-                <th>MPP</th>
-                <th>Start Date</th>
-                <th>End Date</th>
+                <th>Course Name</th>
+                <th>Maximum Seat</th>
+                <th>Pre requisites</th>
             </tr>
-            <tr th:each="course : ${entryList}">
-                <td th:text="${course.id}">1</td>
-                <td><a th:href="@{'/course/' + ${course.id}}" th:text="${course.entryName}">Entry Name ...</a></td>
-                <td th:text="${course.fPPNum}">FPP Num ...</td>
-                <td th:text="${course.mPPNum}">MPP Num ...</td>
-                <td th:text="${course.startDate}">Start Date ...</td>
-                <td th:text="${course.endDate}">End Date ...</td>
+            <tr th:each="course : ${courses}">
+                <td>
+                    <a th:href="@{'/course/' + ${course.id}}" th:text="${course.id}">1</a>
+                </td>
+                <td><a th:href="@{'/course/' + ${course.id}}" th:text="${course.name}">Course Name ...</a></td>
+                <td><a th:text="${course.maximumSeat}">Maximum Seat ...</a></td>
+                <td>
+                    <span th:if="${course.prerequisite}" th:each="c : ${course.prerequisite}" th:value="${c.id}" th:text="${c.name + ' '}"></span>
+                    <span th:if="${#arrays.isEmpty(course.prerequisite)}">No Prerequisite</span>
+                </td>
             </tr>
         </table>
     </div>

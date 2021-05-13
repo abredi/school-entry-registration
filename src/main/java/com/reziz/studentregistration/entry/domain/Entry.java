@@ -4,10 +4,12 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.*;
-import javax.validation.constraints.Email;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.validation.constraints.NotEmpty;
-import java.util.Date;
+import java.time.LocalDate;
 
 @Entity
 @RequiredArgsConstructor
@@ -19,8 +21,12 @@ public class Entry {
     private Long id;
     @NotEmpty
     private String entryName;
+    @NotEmpty
     private int fPPNum;
+    @NotEmpty
     private int mPPNum;
-    private Date startDate;
-    private Date endDate;
+    @NotEmpty
+    private LocalDate startDate;
+    @NotEmpty
+    private LocalDate endDate;
 }

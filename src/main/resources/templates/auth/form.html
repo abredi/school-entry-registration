@@ -4,7 +4,7 @@
         <div class="hero-head">
             <div class="">
                 <p class="title">
-                    Entry Registration Form
+                    Account Registration Form
                 </p>
                 <p class="subtitle">
                     Maharishi International University
@@ -12,12 +12,30 @@
             </div>
         </div>
         <div class="hero-body">
-            <form class="box" th:action="@{/course/add}" th:object="${course}" method="post">
-
+            <form class="box" th:action="@{/account}" th:object="${account}" method="post">
                 <div class="field">
-                    <label class="label">Entry Name</label>
+                    <label class="label">Select Role</label>
                     <div class="control has-icons-left has-icons-right">
-                        <input class="input is-info" placeholder="Enter Entry Name" th:field="*{entryName}"
+                        <div class="select">
+                            <select th:field="*{roles}" th:errorclass="'is-danger'">
+                                <option value="Admin">Admin</option>
+                                <option value="Faculty">Faculty</option>
+                                <option value="Student">Student</option>
+                            </select>
+                        </div>
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-user"></i>
+                        </span>
+                        <span class="icon is-small is-right">
+                            <i class="fas fa-check"></i>
+                        </span>
+                    </div>
+                    <p th:if="${#fields.hasErrors('roles')}" th:errors="*{roles}" th:errorclass="'help is-danger'">Error</p>
+                </div>
+                <div class="field">
+                    <label class="label">First Name</label>
+                    <div class="control has-icons-left has-icons-right">
+                        <input class="input is-info" placeholder="Enter First Name" th:field="*{firstName}"
                                th:errorclass="'is-danger'">
                         <span class="icon is-small is-left">
                             <i class="fas fa-user"></i>
@@ -26,13 +44,41 @@
                             <i class="fas fa-check"></i>
                         </span>
                     </div>
-                    <p th:if="${#fields.hasErrors('entryName')}" th:errors="*{entryName}" th:errorclass="'help is-danger'">Error</p>
+                    <p th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}" th:errorclass="'help is-danger'">Error</p>
+                </div>
+                <div class="field">
+                    <label class="label">Last Name</label>
+                    <div class="control has-icons-left has-icons-right">
+                        <input class="input is-info" placeholder="Enter Last Name" th:field="*{lastName}"
+                               th:errorclass="'is-danger'">
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-user"></i>
+                        </span>
+                        <span class="icon is-small is-right">
+                            <i class="fas fa-check"></i>
+                        </span>
+                    </div>
+                    <p th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" th:errorclass="'help is-danger'">Error</p>
+                </div>
+                <div class="field">
+                    <label class="label">Username</label>
+                    <div class="control has-icons-left has-icons-right">
+                        <input class="input is-info" placeholder="Enter Username" th:field="*{username}"
+                               th:errorclass="'is-danger'">
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-user"></i>
+                        </span>
+                        <span class="icon is-small is-right">
+                            <i class="fas fa-check"></i>
+                        </span>
+                    </div>
+                    <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}" th:errorclass="'help is-danger'">Error</p>
                 </div>
 
                 <div class="field">
-                    <label class="label">FPP Num</label>
+                    <label class="label">Entry Password</label>
                     <div class="control has-icons-left has-icons-right">
-                        <input class="input is-info" placeholder="Enter FPP Num" th:field="*{fPPNum}"
+                        <input class="input is-info" placeholder="Enter Password" th:field="*{password}"
                                th:errorclass="'is-danger'">
                         <span class="icon is-small is-left">
                             <i class="fas fa-user"></i>
@@ -41,52 +87,7 @@
                             <i class="fas fa-check"></i>
                         </span>
                     </div>
-                    <p th:if="${#fields.hasErrors('fPPNum')}" th:errors="*{fPPNum}" th:errorclass="'help is-danger'">Error</p>
-                </div>
-
-                <div class="field">
-                    <label class="label">Entry MPP Num</label>
-                    <div class="control has-icons-left has-icons-right">
-                        <input class="input is-info" placeholder="Enter MPP Num" th:field="*{mPPNum}"
-                               th:errorclass="'is-danger'">
-                        <span class="icon is-small is-left">
-                            <i class="fas fa-user"></i>
-                        </span>
-                        <span class="icon is-small is-right">
-                            <i class="fas fa-check"></i>
-                        </span>
-                    </div>
-                    <p th:if="${#fields.hasErrors('mPPNum')}" th:errors="*{mPPNum}" th:errorclass="'help is-danger'">Error</p>
-                </div>
-
-                <div class="field">
-                    <label class="label">Entry Start Date</label>
-                    <div class="control has-icons-left has-icons-right">
-                        <input class="input is-info" placeholder="Enter Start Date" th:field="*{startDate}"
-                               th:errorclass="'is-danger'">
-                        <span class="icon is-small is-left">
-                            <i class="fas fa-user"></i>
-                        </span>
-                        <span class="icon is-small is-right">
-                            <i class="fas fa-check"></i>
-                        </span>
-                    </div>
-                    <p th:if="${#fields.hasErrors('startDate')}" th:errors="*{startDate}" th:errorclass="'help is-danger'">Error</p>
-                </div>
-
-                <div class="field">
-                    <label class="label">Entry End Date</label>
-                    <div class="control has-icons-left has-icons-right">
-                        <input class="input is-info" placeholder="Enter End Date" th:field="*{endDate}"
-                               th:errorclass="'is-danger'">
-                        <span class="icon is-small is-left">
-                            <i class="fas fa-user"></i>
-                        </span>
-                        <span class="icon is-small is-right">
-                            <i class="fas fa-check"></i>
-                        </span>
-                    </div>
-                    <p th:if="${#fields.hasErrors('endDate')}" th:errors="*{endDate}" th:errorclass="'help is-danger'">Error</p>
+                    <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}" th:errorclass="'help is-danger'">Error</p>
                 </div>
 
                 <div class="field is-grouped">
@@ -94,7 +95,7 @@
                         <button type="submit" class="button is-info">Submit</button>
                     </div>
                     <div class="control">
-                        <a class="button is-info is-light" th:href="@{/block}">Cancel</a>
+                        <a class="button is-info is-light" th:href="@{/account}">Cancel</a>
                     </div>
                 </div>
             </form>

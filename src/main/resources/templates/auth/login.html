@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <title>MIU Student</title>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="../static/img/favicon.png" th:href="@{/img/favicon.png}">
+    <link rel="stylesheet" type="text/css" media="all"
+          href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
+</head>
+<body>
+<section class="hero is-info">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <p class="title">
+               <strong>Welcome To MIU</strong>
+            </p>
+            <p class="subtitle">
+                Login
+            </p>
+        </div>
+    </div>
+</section>
+
+<div class="container">
+    <div class="columns is-desktop">
+        <div class="column"></div>
+        <div class="column">
+            <form class="container mt-6" th:action="@{/login}" method="post">
+                <div class="notification is-primary" th:if="${param.logout}">
+                    You have been logged out.
+                </div>
+
+                <div class="field">
+                    <label class="label">Username</label>
+                    <div class="control has-icons-left">
+                        <input name="username" th:class="${param.error}? 'is-danger input': 'input'" type="text" placeholder="Username input">
+                        <span class="icon is-small is-left">
+                            <strong class="fas fa-envelope"></strong>
+                         </span>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">Password</label>
+                    <div class="control has-icons-left">
+                        <input name="password" th:class="${param.error}? 'is-danger input': 'input'" class="input" type="password" placeholder="Password input">
+                        <span class="icon is-small is-left">
+                            <strong class="fas fa-lock"></strong>
+                    </span>
+                    </div>
+                </div>
+
+                <p th:if="${param.error}" class="help is-danger my-3">This username or password is invalid</p>
+
+                <div class="field is-grouped">
+                    <div class="control">
+                        <button type="submit" class="button is-link">Login</button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+
+        <div class="column"></div>
+    </div>
+</div>
+</body>
+</html> 

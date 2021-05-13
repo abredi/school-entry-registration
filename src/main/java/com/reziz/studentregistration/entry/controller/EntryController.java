@@ -44,7 +44,7 @@ public class EntryController {
         persistEntry.setFPPNum(entry.getFPPNum());
         persistEntry.setMPPNum(entry.getMPPNum());
         ra.addFlashAttribute("entry",  entryService.save(persistEntry));
-        ra.addAttribute("id", entryService.save(persistEntry).getId()).addFlashAttribute("message", "Entry created!");
+        ra.addAttribute("id", entryService.save(persistEntry).getId()).addFlashAttribute("message", "Course created!");
         return "redirect:/entry/{id}";
     }
 

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <title>MIU Student</title>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="../static/img/favicon.png" th:href="@{/img/favicon.png}">
+    <link rel="stylesheet" type="text/css" media="all"
+          href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
+</head>
+<body>
+<section class="hero is-info">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <p class="title">
+                <strong>What are doing?</strong>
+            </p>
+            <p class="subtitle">
+                You are clicking everything like a kid :), now you blew the system.
+                But, don't worry, you're not f**ked up; we rescue YOU!
+            </p>
+        </div>
+    </div>
+</section>
+
+<div class="container has-text-centered">
+    <div class="columns is-desktop">
+        <div class="column"></div>
+        <div class="column has-text-centered mt-6">
+            <h1 class="title">You are in good hands!</h1>
+            <p class="subTitle">We will take you <a th:href="@{/}"><b>Home</b></a></p>
+
+            <div class="mt-6">
+                <em>For pros:</em>
+                <p th:if="${exception}" th:text="${exception}"></p>
+            </div>
+
+        </div>
+
+        <div class="column"></div>
+    </div>
+</div>
+</body>
+</html>

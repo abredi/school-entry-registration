@@ -38,16 +38,28 @@
             <a class="navbar-item" href="/">
                 Home
             </a>
+            <a class="navbar-item" th:href="@{/course}">
+                Courses
+            </a>
+            <a class="navbar-item" th:href="@{/course/add}">
+                Add Course
+            </a>
+            <a class="navbar-item" th:href="@{/account}">
+                Accounts
+            </a>
+            <a class="navbar-item" th:href="@{/account/add}">
+                Add Account
+            </a>
             <a class="navbar-item" href="/student">
                 Student
             </a>
             <a class="navbar-item" href="/student/add">
                 Add Student
             </a>
-            <a class="navbar-item" href="/entry">
+            <a class="navbar-item" href="/course">
                 Entry
             </a>
-            <a class="navbar-item" href="/entry/add">
+            <a class="navbar-item" href="/course/add">
                 Add Entry
             </a>
             <a class="navbar-item" href="/block">
@@ -58,7 +70,25 @@
             </a>
         </div>
     </div>
+    <div class="navbar-end" th:if="${user}">
+        <div class="navbar-item">
+            <div class="buttons">
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">
+
+                        <span th:text="${#strings.capitalize(user.principal.username)}"></span>
+                    </a>
+                    <div class="navbar-dropdown">
+                        <a class="navbar-item" th:href="@{/account/profile}">
+                            Profile
+                        </a>
+                        <a class="navbar-item" th:href="@{/logout}">
+                            Log out
+                        </a>
+                    </div>
+                </div>
+        </div>
+    </div>
 </nav>
 
 <div class="container">
-
