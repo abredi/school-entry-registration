@@ -1,0 +1,27 @@
+<div th:replace="partial/header"></div>
+<div class="notification is-info mt-5" th:if="${message != null}">
+    <p th:text="${message}"></p>
+</div>
+
+<section class="section" th:if="${currentUser != null}">
+    <h1 class="title">Account Detail</h1>
+    <h2 class="subtitle" th:text="${'#' + currentUser.id} ?: ''"></h2>
+    <h2 class="subtitle" th:text="${'First Name: ' + currentUser.firstName + ' ' + currentUser.lastName}"></h2>
+    <h2 class="subtitle" th:text="${'Role: ' + currentUser.roles}"></h2>
+</section>
+
+<div class="section" th:if="${(profile == null) && (currentUser.username == 'faculty')}">
+    <a th:href="@{profile/add}">Create Profile</a>
+</div>
+
+<section class="section" th:if="${profile != null}">
+    <h1 class="title">Profile Detail</h1>
+    <h2 class="subtitle" th:text="${'#' + profile.id} ?: ''"></h2>
+    <h2 class="subtitle" th:text="${'Specialization Area: ' + profile.specializationArea}"></h2>
+    <h2 class="subtitle" th:text="${'Block to teach: ' + profile.blockToTeach}"></h2>
+    <h2 class="subtitle" th:text="${'Block interval start: ' + profile.blockIntervalStart}"></h2>
+    <h2 class="subtitle" th:text="${'Block interval end: ' + profile.blockIntervalEnd}"></h2>
+    <h2 class="subtitle" th:text="${'Description: ' + profile.getDescription}"></h2>
+</section>
+
+<div th:replace="partial/footer"></div>

@@ -1,0 +1,80 @@
+<div th:replace="partial/header"></div>
+<section class="p-5 is-flex is-justify-content-center">
+    <section class="hero is-info is-half p-6">
+        <div class="hero-head">
+            <div class="">
+                <p class="title">
+                    Profile Form
+                </p>
+                <p class="subtitle">
+                    Maharishi International University
+                </p>
+            </div>
+        </div>
+        <div class="hero-body">
+            <form class="box" th:action="@{/profile}" th:object="${profile}" method="post">
+                <div class="field">
+                    <label class="label">Specialization Area</label>
+                    <div class="control has-icons-left has-icons-right">
+                        <input class="input is-info" placeholder="Enter Specialization Area"
+                               th:field="*{specializationArea}"
+                               th:errorclass="'is-danger'">
+                    </div>
+                    <p th:if="${#fields.hasErrors('specializationArea')}" th:errors="*{specializationArea}"
+                       th:errorclass="'help is-danger'">Error</p>
+                </div>
+
+                <div class="field">
+                    <label class="label">Block To Teach</label>
+                    <div class="control has-icons-left has-icons-right">
+                        <input class="input is-info" placeholder="Enter Block to Teach" th:field="*{blockToTeach}"
+                               th:errorclass="'is-danger'">
+                    </div>
+                    <p th:if="${#fields.hasErrors('blockToTeach')}" th:errors="*{blockToTeach}"
+                       th:errorclass="'help is-danger'">Error</p>
+                </div>
+
+                <div class="field">
+                    <label class="label">Block Interval Start</label>
+                    <div class="control has-icons-left has-icons-right">
+                        <input class="input is-info" placeholder="Enter Start Date" th:field="*{blockIntervalStart}"
+                               th:errorclass="'is-danger'">
+                    </div>
+                    <p th:if="${#fields.hasErrors('blockIntervalStart')}" th:errors="*{blockIntervalStart}"
+                       th:errorclass="'help is-danger'">Error</p>
+                </div>
+
+                <div class="field">
+                    <label class="label">Block Interval End</label>
+                    <div class="control has-icons-left has-icons-right">
+                        <input class="input is-info" placeholder="Enter End Date" th:field="*{blockIntervalEnd}"
+                               th:errorclass="'is-danger'">
+                    </div>
+                    <p th:if="${#fields.hasErrors('blockIntervalEnd')}" th:errors="*{blockIntervalEnd}"
+                       th:errorclass="'help is-danger'">Error</p>
+                </div>
+
+                <div class="field">
+                    <label class="label">Description</label>
+                    <div class="control has-icons-left has-icons-right">
+                        <input class="input is-info" placeholder="Enter Description" th:field="*{description}"
+                               th:errorclass="'is-danger'">
+                    </div>
+                    <p th:if="${#fields.hasErrors('description')}" th:errors="*{description}" th:errorclass="'help is-danger'">
+                        Error</p>
+                </div>
+
+                <div class="field is-grouped">
+                    <div class="control">
+                        <button type="submit" class="button is-info">Submit</button>
+                    </div>
+                    <div class="control">
+                        <a class="button is-info is-light" th:href="@{/profile}">Cancel</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+</section>
+<div th:replace="partial/footer"></div>
+

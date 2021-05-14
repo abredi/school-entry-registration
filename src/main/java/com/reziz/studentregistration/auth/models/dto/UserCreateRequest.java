@@ -15,6 +15,7 @@ public class UserCreateRequest {
     private String username;
     @NotNull
     private String password;
+    private String prevPassword;
     @NotNull
     private String roles;
 }
