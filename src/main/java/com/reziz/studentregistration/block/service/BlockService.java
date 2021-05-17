@@ -3,6 +3,7 @@ package com.reziz.studentregistration.block.service;
 import com.reziz.studentregistration.block.domain.Block;
 import com.reziz.studentregistration.block.repository.BlockRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
 
@@ -13,6 +14,7 @@ import java.util.List;
 @Validated
 @AllArgsConstructor
 public class BlockService {
+    @Autowired
     private final BlockRepository entryRepository;
     public Block save(@Valid Block entry) {
         return entryRepository.save(entry);

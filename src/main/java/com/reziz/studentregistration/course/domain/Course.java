@@ -23,7 +23,7 @@ public class Course {
     private String name;
     @Min(1)
     private Integer maximumSeat;
-
+    private String courseCode;
     @ManyToMany(cascade = CascadeType.ALL)
     private List<Course> prerequisite;
 

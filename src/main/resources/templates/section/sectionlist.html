@@ -1,0 +1,47 @@
+<div th:replace="partial/header"></div>
+<section class="hero is-info">
+    <div class="hero-body">
+        <p class="title">
+
+        </p>
+        <p class="subtitle">
+
+        </p>
+    </div>
+</section>
+<section class="section">
+    <div class="container">
+        <h1 class="title">
+            Maharishi International University
+        </h1>
+        <p class="subtitle">
+            <strong>Section</strong> registration system.
+        </p>
+    </div>
+    <div class="container mt-3">
+        <div class="columns is-desktop is-full">
+            <div class="table-container column is-full">
+                <table class="table is-fullwidth  is-striped is-hoverable">
+                    <tr>
+                        <th>Block</th>
+                        <th>Code</th>
+                        <th>Course Name</th>
+                        <th>Capacity</th>
+                        <th>Faculty</th>
+                        <th>Seats</th>
+                    </tr>
+                   <tr th:each="sect : ${sectionRec}">
+                       <td th:text="${sect.block.blockName}"></td>
+                        <td th:text="${sect.course.courseCode}"></td>
+                       <td th:text="${sect.course.name}"> </td>
+                       <td th:text="${sect.section.capacity}"></td>
+                        <td th:text="${sect.faculty.facultyName}"></td>
+                       <td th:text="${sect.section.capacity - sect.students.size()}"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div th:replace="partial/footer"></div>

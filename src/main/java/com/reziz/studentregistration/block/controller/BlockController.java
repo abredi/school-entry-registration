@@ -3,6 +3,9 @@ package com.reziz.studentregistration.block.controller;
 import com.reziz.studentregistration.block.domain.Block;
 import com.reziz.studentregistration.block.domain.BlockDTO;
 import com.reziz.studentregistration.block.service.BlockService;
+import com.reziz.studentregistration.course.domain.Course;
+import com.reziz.studentregistration.course.domain.CourseDTO;
+import com.reziz.studentregistration.course.service.CourseService;
 import com.reziz.studentregistration.entry.domain.Entry;
 import com.reziz.studentregistration.entry.service.EntryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 @RequestMapping("/block")
@@ -22,6 +26,8 @@ public class BlockController {
     private BlockService blockService;
     @Autowired
     private EntryService entryService;
+    @Autowired
+    private CourseService courseService;
 
     @GetMapping({"index", "/", ""})
     public String index(Model model) {
@@ -62,5 +68,12 @@ public class BlockController {
     public String get(@PathVariable Long id, Model model) {
         model.addAttribute("block", blockService.findById(id));
         return "block/detail";
+    }
+    @GetMapping("/addcourses/{id}")
+    public String setCourses(@ModelAttribute("courses") Course course, BindingResult result, Model model) {
+       // model.addAttribute("blockId", id);
+        List<Course> courseList = courseService.getAllCourses();
+        model.addAttribute("courseList", courseList);
+        return "block/setcourses";
     }
 }
