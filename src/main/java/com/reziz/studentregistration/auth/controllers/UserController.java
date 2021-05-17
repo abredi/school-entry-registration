@@ -1,13 +1,9 @@
 package com.reziz.studentregistration.auth.controllers;
 
 import com.reziz.studentregistration.auth.models.User;
-import com.reziz.studentregistration.auth.models.UserAuthDetails;
 import com.reziz.studentregistration.auth.models.dto.UserCreateRequest;
 import com.reziz.studentregistration.auth.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -47,33 +43,10 @@ public class UserController {
         return "redirect:/account/{id}";
     }
 
-    @GetMapping("/edit")
-    public String edit(@ModelAttribute("account") UserCreateRequest account, Model model, Principal p) throws Exception {
-        UserAuthDetails ud = (UserAuthDetails) ((UsernamePasswordAuthenticationToken) p).getPrincipal();
-        var user = userService.findByUsername(ud.getUsername());
-        account.setFirstName(user.getFirstName());
-        account.setLastName(user.getLastName());
-        account.setUsername(user.getUsername());
-        return "auth/edit";
-    }
-
-    @PostMapping("/update")
-    public String updatePass(@ModelAttribute("account") UserCreateRequest account, BindingResult result, RedirectAttributes ra, Principal p) {
-        var ud = (UserAuthDetails) ((UsernamePasswordAuthenticationToken) p).getPrincipal();
-        var user = userService.findByUsername(ud.getUsername());
-        if (userService.updateUserPass(user, account) == null) {
-            ra.addFlashAttribute("message", "Invalid request");
-            return "redirect:/account/edit";
-        }
-        ra.addAttribute("id", user.getId())
-                .addFlashAttribute("message", "Account Updated!");
-        return "redirect:/account/{id}";
-    }
-
     @GetMapping(value = "/profile")
     public String profile(Model model, Principal principal) {
-        var currentUser = userService.findByUsername(principal.getName());
-        model.addAttribute("currentUser", currentUser);
+        Optional<User> currentUser = userService.findByUsername(principal.getName());
+        model.addAttribute("currentUser", currentUser.get());
         return "auth/profile";
     }
 

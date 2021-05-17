@@ -27,21 +27,20 @@ public class UserService {
        return userRepository.save(userModel);
     }
 
-    public User findByUsername(String username) {
-        return userRepository.findByUsername(username).orElse(null);
+    public Optional<User> findByUsername(String username) {
+        return userRepository.findByUsername(username);
     }
 
     public List<User> findAll() {
         return userRepository.findAll();
     }
 
-    public User updateUserPass(User user, UserCreateRequest userReq) {
-        if (user != null && passwordEncoder.matches(userReq.getPrevPassword(), user.getPassword())){
-            user.setPassword(passwordEncoder.encode(userReq.getPassword()));
-            return userRepository.save(user);
-        }
-
-        return null;
+    public void updateUserPass(Optional<User> user, UserCreateRequest userReq) {
+        var updated = user.map(userModel -> {
+            userModel.setPassword(passwordEncoder.encode(userReq.getPassword()));
+            return userModel;
+        }).orElseThrow(() -> new UsernameNotFoundException("Not Found"));
+        userRepository.save(updated);
     }
 
     public User findById(Long id) {
