@@ -3,6 +3,7 @@ package com.reziz.studentregistration.entry.service;
 import com.reziz.studentregistration.entry.domain.Entry;
 import com.reziz.studentregistration.entry.repository.EntryRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
 
@@ -13,6 +14,7 @@ import java.util.List;
 @Validated
 @AllArgsConstructor
 public class EntryService {
+    @Autowired
     private final EntryRepository entryRepository;
     public Entry save(@Valid Entry entry) {
         return entryRepository.save(entry);

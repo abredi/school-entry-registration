@@ -23,6 +23,7 @@ public class Block {
     private Date endDate;
     private int fPPNum;
     private int mPPNum;
+   // private Long entry_Id;
     @JoinColumn(name = "entryId", nullable = false)
     @ManyToOne(fetch = FetchType.EAGER)
     private Entry entry;

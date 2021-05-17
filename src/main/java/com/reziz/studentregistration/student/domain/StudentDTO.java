@@ -13,4 +13,8 @@ public class StudentDTO {
     private String lastName;
     @NotEmpty @Email
     private String email;
+    @NotEmpty
+    private String track;
+    @NotEmpty
+    private Long entryId;
 }

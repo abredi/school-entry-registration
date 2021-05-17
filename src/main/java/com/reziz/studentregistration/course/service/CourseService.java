@@ -6,6 +6,7 @@ import com.reziz.studentregistration.course.domain.Prerequisite;
 import com.reziz.studentregistration.course.repository.CourseRepository;
 import com.reziz.studentregistration.course.repository.PrerequisiteRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
 
@@ -17,6 +18,7 @@ import java.util.List;
 @Validated
 @AllArgsConstructor
 public class CourseService {
+    @Autowired
     private final CourseRepository courseRepository;
     private final PrerequisiteRepository prerequisiteRepository;
     public Course save(@Valid CourseDTO course) {

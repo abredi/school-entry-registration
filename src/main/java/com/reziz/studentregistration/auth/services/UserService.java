@@ -20,11 +20,11 @@ public class UserService {
     public User createUser(UserCreateRequest ur) {
         Optional<User> byUsername = userRepository.findByUsername(ur.getUsername());
         if (byUsername.isPresent()) {
-            throw new RuntimeException("User already registered. Please use different username.");
+           throw new RuntimeException("User already registered. Please use different username.");
         }
         var userModel = new User(ur.getFirstName(), ur.getLastName(), ur.getUsername(),
                 passwordEncoder.encode(ur.getPassword()), ur.getRoles());
-        return userRepository.save(userModel);
+       return userRepository.save(userModel);
     }
 
     public User findByUsername(String username) {

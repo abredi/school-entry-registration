@@ -28,7 +28,7 @@
                         <th>FPP</th>
                         <th>MPP</th>
                         <th>Start Date</th>
-                        <th>End Date</th>
+                        <th>Start Date</th>
                     </tr>
                     <tr th:each="block : ${blockList}">
                         <td><a th:href="@{'/block/' + ${block.id}}" th:text="${block.id}">Block Id ...</a></td>
@@ -37,6 +37,7 @@
                         <td th:text="${block.mPPNum}">MPP Num ...</td>
                         <td th:text="${block.startDate}">Start Date ...</td>
                         <td th:text="${block.endDate}">End Date ...</td>
+                        <td><a th:href="@{'/block/section/' + ${block.id}}" th:text="${'View Section'}">Block Id ...</a></td>
                     </tr>
                 </table>
             </div>
