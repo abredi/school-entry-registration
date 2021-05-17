@@ -1,0 +1,66 @@
+<div th:replace="partial/header"></div>
+<section class="p-5 is-flex is-justify-content-center">
+    <section class="hero is-info is-half p-6">
+        <div class="hero-head">
+            <div class="">
+                <p class="title">
+                    Account Registration Form
+                </p>
+                <p class="subtitle">
+                    Maharishi International University
+                </p>
+            </div>
+        </div>
+        <div class="hero-body">
+            <div class="notification is-danger mt-1" th:if="${message != null}">
+                <p th:text="${message}"></p>
+            </div>
+            <form class="box" th:action="@{/account/update}" th:object="${account}" method="post">
+                <div class="field">
+                    <label class="label">First Name</label>
+                    <div class="control has-icons-left has-icons-right">
+                        <input disabled class="input is-info" placeholder="Enter First Name" th:field="*{firstName}">
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Last Name</label>
+                    <div class="control has-icons-left has-icons-right">
+                        <input disabled class="input is-info" placeholder="Enter Last Name" th:field="*{lastName}">
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-user"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Username</label>
+                    <div class="control has-icons-left has-icons-right">
+                        <input disabled class="input is-info" placeholder="Enter Username" th:field="*{username}">
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Previous Password</label>
+                    <div class="control has-icons-left has-icons-right">
+                        <input class="input is-info" th:field="*{prevPassword}" placeholder="Enter Previous Password">
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">New Password</label>
+                    <div class="control has-icons-left has-icons-right">
+                        <input class="input is-info" placeholder="Enter Password" th:field="*{password}">
+                    </div>
+                </div>
+
+                <div class="field is-grouped">
+                    <div class="control">
+                        <button type="submit" class="button is-info">Submit</button>
+                    </div>
+                    <div class="control">
+                        <a class="button is-info is-light" th:href="@{/account}">Cancel</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+</section>
+<div th:replace="partial/footer"></div>

@@ -13,6 +13,7 @@ public class Igniter implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-        userService.createUser(new UserCreateRequest("Abdulaziz", "Ali", "admin", "admin","Admin"));
+        userService.createUser(new UserCreateRequest("Abdulaziz", "Ali", "admin", "admin",null,"Admin"));
+        userService.createUser(new UserCreateRequest("Ree", "Ziz", "faculty", "faculty",null,"faculty"));
     }
 }

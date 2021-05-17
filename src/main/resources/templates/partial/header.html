@@ -79,12 +79,14 @@
             <div class="buttons">
                 <div class="navbar-item has-dropdown is-hoverable">
                     <a class="navbar-link">
-
                         <span th:text="${#strings.capitalize(user.principal.username)}"></span>
                     </a>
                     <div class="navbar-dropdown">
-                        <a class="navbar-item" th:href="@{/account/profile}">
+                        <a class="navbar-item" th:href="@{/profile}">
                             Profile
+                        </a>
+                        <a class="navbar-item" th:href="@{/account/edit}">
+                            Change Password
                         </a>
                         <a class="navbar-item" th:href="@{/logout}">
                             Log out

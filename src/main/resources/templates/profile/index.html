@@ -1,0 +1,46 @@
+<div th:replace="partial/header"></div>
+<section class="hero is-info">
+    <div class="hero-body">
+        <p class="title">
+            Reziz
+        </p>
+        <p class="subtitle">
+            Made with 💜
+        </p>
+    </div>
+</section>
+<section class="section">
+    <div class="container">
+        <h1 class="title">
+            Maharishi International University
+        </h1>
+        <p class="subtitle">
+            <strong>Profile</strong> registration system.
+        </p>
+    </div>
+    <div class="container mt-3">
+        <div class="columns is-desktop is-full">
+            <div class="table-container column is-full">
+                <table class="table is-fullwidth  is-striped is-hoverable">
+                    <tr>
+                        <th title="#">#</th>
+                        <th>Specialization Area</th>
+                        <th>Block To Teach</th>
+                        <th>Block Interval</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr th:each="profile : ${profiles}">
+                        <td th:text="${profile.id}">1</td>
+                        <td><a th:href="@{'/profile/' + ${profile.id}}" th:text="${profile.specializationArea}">Specialization
+                            Area ...</a></td>
+                        <td th:text="${profile.blockToTeach}">Block To Teach...</td>
+                        <td th:text="${profile.blockIntervalStart - profile.blockIntervalEnd}">Block Interval ...</td>
+                        <td th:text="${profile.description}">Desc ...</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div th:replace="partial/footer"></div>
