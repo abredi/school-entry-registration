@@ -1,0 +1,43 @@
+<div th:replace="partial/header"></div>
+<section class="hero is-info">
+    <div class="hero-body">
+        <p class="title">
+            Reziz
+        </p>
+        <p class="subtitle">
+            Made with ✌🏾
+        </p>
+    </div>
+</section>
+<section class="section">
+    <div class="container">
+        <h1 class="title">
+            Maharishi International University
+        </h1>
+        <p class="subtitle">
+            <strong>Student</strong> registration system.
+        </p>
+    </div>
+    <div class="container mt-3">
+        <div class="columns is-desktop is-full">
+            <div class="table-container column is-full">
+                <table class="table is-fullwidth  is-striped is-hoverable">
+                    <tr>
+                        <th title="#">#</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                    </tr>
+                    <tr th:each="student : ${studentList}">
+                        <td th:text="${student.id}">1</td>
+                        <td><a th:href="@{'/student/' + ${student.id}}" th:text="${student.firstName}">First Name
+                            ...</a></td>
+                        <td th:text="${student.lastName}">Last Name ...</td>
+                        <td th:text="${student.email}">Email ...</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+<div th:replace="partial/footer"></div>
